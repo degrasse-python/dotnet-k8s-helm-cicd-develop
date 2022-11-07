@@ -25,7 +25,7 @@ pipeline {
         string(name: 'prodIngressHost', defaultValue: 'dotnet-k8s-helm-sample-sample-projects.192.168.99.100.nip.io', description:'Ingress Host to set when deploying in Production environment.')
 
         // Jenkins Properties
-        string(name: 'drCloudAgents', defaultValue: 'openshift', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
+        string(name: 'drCloudAgents', defaultValue: 'drCloudAgents', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
         string(name: 'imageRegistryCredentialId', defaultValue: 'image-registry-auth', description: 'ID of Jenkins credential containing container image registry username and password')
         string(name: 'devClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing Development Cluster authentication for Helm deploys')
         string(name: 'qaClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing QA Cluster authentication for Helm deploys')
