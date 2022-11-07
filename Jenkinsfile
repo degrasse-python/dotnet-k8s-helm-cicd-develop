@@ -200,6 +200,7 @@ pipeline {
         
             steps {
               bat "dotnet restore sample-dotnet-app"
+              bat "dotnet test ./unit-testing-using-dotnet-test"
             }
         }
 
