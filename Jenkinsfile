@@ -13,7 +13,8 @@ pipeline {
         string(name: 'appName', defaultValue: 'dotnet-k8s-helm-sample', description: 'Used as the base in Helm Release names')
         string(name: 'appDirectory', defaultValue: 'sample-dotnet-app', description: 'Relative path to .NET code and Dockerfile')
         string(name: 'helmChartDirectory', defaultValue: 'deployment/helm-k8s', description: 'Relative path to Helm chart and templates')
-        string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pused for long term storage')
+        string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pushed for long term storage')
+        string(name: 'sourceRegistryMain', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
 
         // Cluster Properties
         string(name: 'productionNamespace', defaultValue: 'sample-projects', description: 'Production namespace. Appended with -dev and -qa for those environments')
@@ -23,7 +24,7 @@ pipeline {
         string(name: 'prodIngressHost', defaultValue: 'dotnet-k8s-helm-sample-sample-projects.192.168.99.100.nip.io', description:'Ingress Host to set when deploying in Production environment.')
 
         // Jenkins Properties
-        string(name: 'k8sCloudForDynamicSlaves', defaultValue: 'openshift', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
+        string(name: 'drCloudAgents', defaultValue: 'openshift', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
         string(name: 'imageRegistryCredentialId', defaultValue: 'image-registry-auth', description: 'ID of Jenkins credential containing container image registry username and password')
         string(name: 'devClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing Development Cluster authentication for Helm deploys')
         string(name: 'qaClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing QA Cluster authentication for Helm deploys')
@@ -56,7 +57,7 @@ pipeline {
         devIngressHost       = "${devIngressHost}"
 
         // Jenkins Properties
-        k8sCloudForDynamicSlaves    = "${k8sCloudForDynamicSlaves}"
+        drCloudAgents    = "${drCloudAgents}"
         imageRegistryCredentialId   = "${imageRegistryCredentialId}"
         devClusterAuthCredentialId  = "${prodClusterAuthCredentialId}"
         qaClusterAuthCredentialId   = "${prodClusterAuthCredentialId}"
@@ -118,7 +119,7 @@ pipeline {
             // 'Build and deliver' agent pod template
             agent {
                 kubernetes {
-                    cloud k8sCloudForDynamicSlaves
+                    cloud drCloudAgents
                     label 'buildah'
                     yaml buildahAgentYaml
                 }
@@ -189,7 +190,7 @@ pipeline {
             // 'Deploy' agent pod template
             agent {
                 kubernetes {
-                    cloud k8sCloudForDynamicSlaves
+                    cloud drCloudAgents
                     label 'helm'
                     yaml helmAgentYaml
                 }
@@ -271,10 +272,10 @@ pipeline {
 
             when { branch releaseBranch }
 
-            // 'Deploy' agent pod template
+            // 'Deploy' agent pod template NEED TO CHANGE NAME  
             agent {
                 kubernetes {
-                    cloud k8sCloudForDynamicSlaves
+                    cloud drCloudAgents
                     label 'helm'
                     yaml helmAgentYaml
                 }
