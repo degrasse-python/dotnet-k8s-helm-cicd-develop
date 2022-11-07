@@ -93,8 +93,8 @@ pipeline {
                 script {
 
                     // load modules
-                    modules.helm   = load '.jenkins/groovy/helm.groovy'
-                    modules.common = load '.jenkins/groovy/commonutils.groovy'
+                    modules.helm   = load './jenkins/groovy/helm.groovy'
+                    modules.common = load './jenkins/groovy/commonutils.groovy'
 
                     // Read Pod templates for dynamic slaves from files
                     env.buildahAgentYaml = readFile '.jenkins/agents/buildah-agent.yml'
