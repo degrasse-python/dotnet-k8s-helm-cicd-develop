@@ -103,7 +103,7 @@ pipeline {
                     // Set version information to build environment
                     env.buildVersion         = modules.common.getVersionFromHelmChart(helmChartFile, releaseBranch)
                     // Set version + "git commit hash" information to environment
-                    env.buildVersionWithHash = env.buildVersion + '-' + sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+                    // env.buildVersionWithHash = env.buildVersion + '-' + sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
                 }
             }
         }
