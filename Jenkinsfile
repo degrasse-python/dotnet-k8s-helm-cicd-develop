@@ -15,6 +15,7 @@ pipeline {
         string(name: 'appDirectory', defaultValue: 'sample-dotnet-app', description: 'Relative path to .NET code and Dockerfile')
         string(name: 'helmChartDirectory', defaultValue: 'deployment/helm-k8s', description: 'Relative path to Helm chart and templates')
         string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pushed for long term storage')
+        // string(name: 'sourceRegistry', defaultValue: 'quay.io/buildah/stable', description: 'Registry where image will be pushed for long term storage')
         string(name: 'sourceRegistryMain', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
 
         // Cluster Properties
@@ -160,7 +161,7 @@ pipeline {
          * Only executes on release branch builds. Creates a Git tag on current commit
          * using version from Helm chart in repository. Also, checks out the HEAD of
          * main branch and increments the patch component of the Helm chart version
-         */
+         
         stage('Tag and Increment Version') {
 
             when { branch releaseBranch }
@@ -175,6 +176,31 @@ pipeline {
                 }
             }
 
+        }
+        */
+
+        /**
+         * STAGE - Code coverage 
+         *
+         * Only executes on main and release branch builds. Deploys to either 'Dev'
+         * or 'QA' environment, based on whether main or release branch is being
+         * built.
+         */
+
+        stage('Code coverage') {
+
+            // 'Deploy' agent pod template -  NEED TO CHANGE
+            agent {
+                kubernetes {
+                    cloud drCloudAgents
+                    label 'helm'
+                    yaml helmAgentYaml
+                }
+            }
+        
+            steps {
+              bat "dotnet restore sample-dotnet-app"
+            }
         }
 
         /**
@@ -261,7 +287,6 @@ pipeline {
                     input "Promote ${imageRepo}:${buildVersion} to production?"
                 }
             }
-
         }
 
         /**

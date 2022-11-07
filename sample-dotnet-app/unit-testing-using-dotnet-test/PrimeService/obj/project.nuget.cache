@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "dgSpecHash": "hvNSkfH9acIITMqQFo5HEOKRs05QI4E2nMySuahrCy6XH5quxeBbXzNcSSkldSbO86wbJOnVKBjPm5RNROmUIA==",
+  "success": true,
+  "projectFilePath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService.cs/PrimeService.cs.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+}
