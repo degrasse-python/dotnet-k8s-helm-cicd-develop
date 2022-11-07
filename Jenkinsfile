@@ -10,7 +10,8 @@ pipeline {
     parameters {
 
         // Application Properties
-        // docker.io/saharshsingh/dotnet-k8s-helm-sample
+        // 
+        // saharshsingh/container-management:1.0-30
         string(name: 'appName', defaultValue: 'dotnet-k8s-helm-sample', description: 'Used as the base in Helm Release names')
         string(name: 'appDirectory', defaultValue: 'sample-dotnet-app', description: 'Relative path to .NET code and Dockerfile')
         string(name: 'helmChartDirectory', defaultValue: 'deployment/helm-k8s', description: 'Relative path to Helm chart and templates')
