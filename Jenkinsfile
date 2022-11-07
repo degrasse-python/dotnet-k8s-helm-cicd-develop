@@ -97,8 +97,8 @@ pipeline {
                     modules.common = load './jenkins/groovy/commonutils.groovy'
 
                     // Read Pod templates for dynamic slaves from files
-                    env.buildahAgentYaml = readFile '.jenkins/agents/buildah-agent.yml'
-                    env.helmAgentYaml    = readFile '.jenkins/agents/helm-agent.yml'
+                    env.buildahAgentYaml = readFile './jenkins/agents/buildah-agent.yml'
+                    env.helmAgentYaml    = readFile './jenkins/agents/helm-agent.yml'
 
                     // Set version information to build environment
                     env.buildVersion         = modules.common.getVersionFromHelmChart(helmChartFile, releaseBranch)
