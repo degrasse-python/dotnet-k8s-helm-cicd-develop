@@ -17,7 +17,7 @@ service:
   port: 8080
 
 ingress:
-  host: dotnet-k8s-helm-sample-sample-projects.192.168.99.100.nip.io
+  host: dotnet.sda.dr.cb-demos.io
 
 env:
   valuesServiceType: simple

@@ -3,8 +3,6 @@ kind: Pod
 spec:
     serviceAccountName: jenkins-privileged
     containers:
-      - name: jnlp
-        image: jenkinsci/jnlp-slave:alpine
       - name: buildah
         image: saharshsingh/container-management:1.0-30
         imagePullPolicy: IfNotPresent

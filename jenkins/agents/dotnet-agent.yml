@@ -2,10 +2,8 @@ apiVersion: v1
 kind: Pod
 spec:
     containers:
-      - name: jnlp
-        image: 'jenkinsci/jnlp-slave:alpine'
-      - name: helm
-        image: http://mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
+      - name: dotnet
+        image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
         imagePullPolicy: IfNotPresent
         command:
           - /bin/cat
