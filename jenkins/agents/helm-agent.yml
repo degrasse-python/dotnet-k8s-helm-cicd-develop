@@ -3,9 +3,9 @@ kind: Pod
 spec:
     containers:
       - name: jnlp
-        image: 'jenkinsci/jnlp-slave:alpine'
+        image: jenkinsci/jnlp-slave:alpine
       - name: helm
-        image: 'saharshsingh/helm:2.13.1'
+        image: saharshsingh/helm:2.13.1
         imagePullPolicy: IfNotPresent
         command:
           - /bin/cat

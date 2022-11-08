@@ -15,9 +15,9 @@ pipeline {
         string(name: 'appName', defaultValue: 'dotnet-k8s-helm-sample', description: 'Used as the base in Helm Release names')
         string(name: 'appDirectory', defaultValue: 'sample-dotnet-app', description: 'Relative path to .NET code and Dockerfile')
         string(name: 'helmChartDirectory', defaultValue: 'deployment/helm-k8s', description: 'Relative path to Helm chart and templates')
-        string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pushed for long term storage')
+        // string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pushed for long term storage')
         // string(name: 'sourceRegistry', defaultValue: 'quay.io/buildah/stable', description: 'Registry where image will be pushed for long term storage')
-        string(name: 'sourceRegistryMain', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
+        string(name: 'sourceRegistry', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
 
         // Cluster Properties
         string(name: 'productionNamespace', defaultValue: 'sample-projects', description: 'Production namespace. Appended with -dev and -qa for those environments')
@@ -118,7 +118,7 @@ pipeline {
          * Uses saharshsingh/container-management:1.0 image to build .NET binaries,
          * create container image, and push the container image to registry for long
          * term storage
-         */
+         
         stage('Build and deliver container image') {
 
             // 'Build and deliver' agent pod template
@@ -157,7 +157,7 @@ pipeline {
                 }
             }
         }
-
+        */
         /**
          * STAGE - Code coverage 
          *

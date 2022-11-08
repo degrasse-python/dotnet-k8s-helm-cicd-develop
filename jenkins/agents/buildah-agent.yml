@@ -4,9 +4,9 @@ spec:
     serviceAccountName: jenkins-privileged
     containers:
       - name: jnlp
-        image: 'jenkinsci/jnlp-slave:alpine'
+        image: jenkinsci/jnlp-slave:alpine
       - name: buildah
-        image: 'saharshsingh/container-management:1.0-30'
+        image: saharshsingh/container-management:1.0-30
         imagePullPolicy: IfNotPresent
         command:
           - /bin/cat
