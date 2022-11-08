@@ -101,6 +101,7 @@ pipeline {
                     // Read Pod templates for dynamic slaves from files
                     env.buildahAgentYaml = readFile './jenkins/agents/buildah-agent.yml'
                     env.helmAgentYaml    = readFile './jenkins/agents/helm-agent.yml'
+                    env.dotnetAgentYaml    = readFile './jenkins/agents/dotnet-agent.yml'
 
                     // Set version information to build environment
                     env.buildVersion         = modules.common.getVersionFromHelmChart(helmChartFile, releaseBranch)
@@ -125,7 +126,7 @@ pipeline {
                 kubernetes {
                     cloud drCloudAgents
                     label 'dotnet'
-                    // yaml helmAgentYaml
+                    yaml dotnetAgentYaml
                 }
             }
         
