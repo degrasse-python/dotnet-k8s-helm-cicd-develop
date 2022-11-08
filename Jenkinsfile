@@ -22,9 +22,9 @@ pipeline {
         // Cluster Properties
         string(name: 'productionNamespace', defaultValue: 'sample-projects', description: 'Production namespace. Appended with -dev and -qa for those environments')
         string(name: 'tillerNS', defaultValue: 'tiller', description: 'Namespace on K8S cluster where tiller server is installed')
-        string(name: 'devIngressHost', defaultValue: 'dotnet-k8s-helm-sample-sample-projects-dev.192.168.99.100.nip.io', description:'Ingress Host to set when deploying in Dev environment.')
-        string(name: 'qaIngressHost', defaultValue: 'dotnet-k8s-helm-sample-sample-projects-qa.192.168.99.100.nip.io', description:'Ingress Host to set when deploying in QA environment.')
-        string(name: 'prodIngressHost', defaultValue: 'dotnet-k8s-helm-sample-sample-projects.192.168.99.100.nip.io', description:'Ingress Host to set when deploying in Production environment.')
+        string(name: 'devIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Dev environment.')
+        string(name: 'qaIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in QA environment.')
+        string(name: 'prodIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Production environment.')
 
         // Jenkins Properties
         string(name: 'drCloudAgents', defaultValue: 'drCloudAgents', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
@@ -124,8 +124,8 @@ pipeline {
             agent {
                 kubernetes {
                     cloud drCloudAgents
-                    label 'helm'
-                    yaml helmAgentYaml
+                    label 'dotnet'
+                    // yaml helmAgentYaml
                 }
             }
         
