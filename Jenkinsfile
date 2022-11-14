@@ -174,10 +174,13 @@ pipeline {
             agent { label 'dotnet-sdk' }
         
             steps {
+              container('helm'){
               // sh "whereis dotnet"
               sh "env"
+              sh "ls -l /usr/bin"
               sh "dotnet restore sample-dotnet-app"
               sh "dotnet test ./unit-testing-using-dotnet-test"
+              }
             }
         }
 
@@ -229,7 +232,7 @@ pipeline {
                 }
             }
 
-            steps {
+            container('helm') steps {
 
                 // Deploy to K8s using helm install
                 container('helm') {
