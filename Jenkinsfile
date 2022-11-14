@@ -174,8 +174,8 @@ pipeline {
             agent { label 'dotnet' }
         
             steps {
-              bat "dotnet restore sample-dotnet-app"
-              bat "dotnet test ./unit-testing-using-dotnet-test"
+              sh "dotnet restore sample-dotnet-app"
+              sh "dotnet test ./unit-testing-using-dotnet-test"
             }
         }
 
