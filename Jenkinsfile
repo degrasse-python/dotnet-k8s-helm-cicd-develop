@@ -174,8 +174,8 @@ pipeline {
             agent { label 'dotnet-sdk' }
         
             steps {
-              sh "whereis dotnet"
-              sh "dotnet restore sample-dotnet-app"
+              // sh "whereis dotnet"
+              sh "./home/jenkins/agent/workspace/dotnet-api_main/dotnet restore sample-dotnet-app"
               sh "dotnet test ./unit-testing-using-dotnet-test"
             }
         }
