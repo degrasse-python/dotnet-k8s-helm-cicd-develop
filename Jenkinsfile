@@ -174,7 +174,7 @@ pipeline {
             agent { label 'dotnet-sdk' }
         
             steps {
-              sh "where dotnet"
+              sh "whereis dotnet"
               sh "dotnet restore sample-dotnet-app"
               sh "dotnet test ./unit-testing-using-dotnet-test"
             }
