@@ -171,7 +171,7 @@ pipeline {
         stage('Code coverage') {
 
             // 'Deploy' agent pod template -  NEED TO CHANGE
-            agent { label 'dotnet' }
+            agent { label 'dotnet-sdk' }
         
             steps {
               sh "dotnet restore sample-dotnet-app"
