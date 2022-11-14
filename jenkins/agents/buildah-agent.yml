@@ -4,7 +4,7 @@ spec:
     serviceAccountName: jenkins-privileged
     containers:
       - name: buildah
-        image: saharshsingh/container-management:1.0-30 # need to change
+        image: quay.io/buildah/stable # need to change
         imagePullPolicy: IfNotPresent
         command:
           - /bin/cat

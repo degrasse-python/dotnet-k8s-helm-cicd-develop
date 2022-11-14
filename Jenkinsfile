@@ -158,25 +158,20 @@ pipeline {
             }
         }
         */
-        /*
+
+        /* 
         *
          * STAGE - Code coverage 
          *
          * Only executes on main and release branch builds. Deploys to either 'Dev'
          * or 'QA' environment, based on whether main or release branch is being
          * built.
-         
+        */
 
         stage('Code coverage') {
 
             // 'Deploy' agent pod template -  NEED TO CHANGE
-            agent {
-                kubernetes {
-                    cloud drCloudAgents
-                    label 'dotnet'
-                    yaml dotnetAgentYaml
-                }
-            }
+            agent { label 'dotnet' }
         
             steps {
               bat "dotnet restore sample-dotnet-app"
@@ -184,7 +179,7 @@ pipeline {
             }
         }
 
-        */
+        
 
         /**
          * STAGE - Tag and Increment Version
