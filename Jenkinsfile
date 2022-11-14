@@ -27,7 +27,7 @@ pipeline {
         string(name: 'prodIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Production environment.')
 
         // Jenkins Properties
-        string(name: 'drCloudAgents', defaultValue: 'drCloudAgents', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
+        string(name: 'drCloudAgents', defaultValue: 'kubernetes', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
         string(name: 'imageRegistryCredentialId', defaultValue: 'image-registry-auth', description: 'ID of Jenkins credential containing container image registry username and password')
         string(name: 'devClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing Development Cluster authentication for Helm deploys')
         string(name: 'qaClusterAuthCredentialId', defaultValue: 'k8s-cluster-auth', description: 'ID of Jenkins credential containing QA Cluster authentication for Helm deploys')
@@ -158,7 +158,8 @@ pipeline {
             }
         }
         */
-        /**
+        /*
+        *
          * STAGE - Code coverage 
          *
          * Only executes on main and release branch builds. Deploys to either 'Dev'
@@ -209,13 +210,14 @@ pipeline {
         }
         */
 
-        /**
+        /*
+         *
          * STAGE - Deploy to Staging
          *
          * Only executes on main and release branch builds. Deploys to either 'Dev'
          * or 'QA' environment, based on whether main or release branch is being
          * built.
-         */
+        */
         
         stage('Deploy to Staging') {
 
@@ -280,11 +282,12 @@ pipeline {
             }
         }
 
-        /**
-         * STAGE - Confirm Promotion to Production
-         *
-         * Pipeline halts for configured amount of time and waits for someone to click Proceed or Abort.
-         */
+        /*
+        *
+        * STAGE - Confirm Promotion to Production
+        *
+        * Pipeline halts for configured amount of time and waits for someone to click Proceed or Abort.
+        */
         stage('Confirm Promotion to Production') {
 
             when { branch releaseBranch }
@@ -296,11 +299,12 @@ pipeline {
             }
         }
 
-        /**
+        /*
+        *
          * STAGE - Promote to Production
          *
          * Once promotion is confirmed in previous step, build is promoted to production
-         */
+        */
         stage('Promote to Production') {
 
             when { branch releaseBranch }
