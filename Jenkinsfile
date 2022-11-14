@@ -171,16 +171,18 @@ pipeline {
         stage('Code coverage') {
 
             // 'Deploy' agent pod template -  NEED TO CHANGE
-            agent { label 'dotnet-sdk' }
+            agent { 
+              label 'dotnet-sdk'
+              defaultContainer 'shell' }
         
             steps {
-              container('helm'){
+              
               // sh "whereis dotnet"
               sh "env"
               sh "ls -l /usr/bin"
               sh "dotnet restore sample-dotnet-app"
               sh "dotnet test ./unit-testing-using-dotnet-test"
-              }
+
             }
         }
 
