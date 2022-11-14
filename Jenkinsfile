@@ -21,7 +21,7 @@ pipeline {
 
         // Cluster Properties
         string(name: 'productionNamespace', defaultValue: 'sample-projects', description: 'Production namespace. Appended with -dev and -qa for those environments')
-        string(name: 'tillerNS', defaultValue: 'tiller', description: 'Namespace on K8S cluster where tiller server is installed')
+        // string(name: 'tillerNS', defaultValue: 'tiller', description: 'Namespace on K8S cluster where tiller server is installed')
         string(name: 'devIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Dev environment.')
         string(name: 'qaIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in QA environment.')
         string(name: 'prodIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Production environment.')
@@ -216,6 +216,7 @@ pipeline {
          * or 'QA' environment, based on whether main or release branch is being
          * built.
          */
+        
         stage('Deploy to Staging') {
 
             when { anyOf { branch releaseBranch; branch mainBranch } }
