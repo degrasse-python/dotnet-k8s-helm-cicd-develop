@@ -19,7 +19,9 @@ spec:
     stages {
         stage('Main') {
             steps {
-                sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
+              sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
+              sh "dotnet restore sample-dotnet-app"
+              sh "dotnet test ./unit-testing-using-dotnet-test"
             }
         }
     }
