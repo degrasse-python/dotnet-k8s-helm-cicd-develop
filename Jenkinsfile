@@ -175,7 +175,8 @@ pipeline {
         
             steps {
               // sh "whereis dotnet"
-              sh "./home/jenkins/agent/workspace/dotnet-api_main/dotnet restore sample-dotnet-app"
+              sh "env"
+              sh "dotnet restore sample-dotnet-app"
               sh "dotnet test ./unit-testing-using-dotnet-test"
             }
         }
