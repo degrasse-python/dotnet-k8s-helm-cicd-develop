@@ -10,21 +10,21 @@ pipeline {
     parameters {
 
         // Application Properties
-        // 
+        // laptevss/dotnet-aspnet docker.io/saharshsingh
         // saharshsingh/container-management:1.0-30
         string(name: 'appName', defaultValue: 'dotnet-k8s-helm-sample', description: 'Used as the base in Helm Release names')
         string(name: 'appDirectory', defaultValue: 'sample-dotnet-app', description: 'Relative path to .NET code and Dockerfile')
         string(name: 'helmChartDirectory', defaultValue: 'deployment/helm-k8s', description: 'Relative path to Helm chart and templates')
-        // string(name: 'sourceRegistry', defaultValue: 'docker.io/saharshsingh', description: 'Registry where image will be pushed for long term storage')
+        string(name: 'sourceRegistry', defaultValue: 'mcr.microsoft.com/dotnet/sdk:6.0', description: 'Registry where image will be pushed for long term storage')
         // string(name: 'sourceRegistry', defaultValue: 'quay.io/buildah/stable', description: 'Registry where image will be pushed for long term storage')
-        string(name: 'sourceRegistry', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
+        string(name: 'targetRegistry', defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', description: 'Registry where image will be pushed for long term storage')
 
         // Cluster Properties
         string(name: 'productionNamespace', defaultValue: 'sample-projects', description: 'Production namespace. Appended with -dev and -qa for those environments')
         // string(name: 'tillerNS', defaultValue: 'tiller', description: 'Namespace on K8S cluster where tiller server is installed')
         string(name: 'devIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Dev environment.')
         string(name: 'qaIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in QA environment.')
-        string(name: 'prodIngressHost', defaultValue: 'sda.dr.cb-demos.io', description:'Ingress Host to set when deploying in Production environment.')
+        string(name: 'prodIngressHost', defaultValue: 'ameris.cb-sa.io', description:'Ingress Host to set when deploying in Production environment.')
 
         // Jenkins Properties
         string(name: 'drCloudAgents', defaultValue: 'kubernetes', description: 'Cloud name for Kubernetes cluster where Jenkins slave pods will be spawned')
@@ -49,7 +49,8 @@ pipeline {
         helmChartDirectory = "${helmChartDirectory}"
         helmChartFile      = "${helmChartDirectory + '/Chart.yaml'}"
         imageRepo          = "${sourceRegistry + '/' + appName}"
-
+        targetImageRepo          = "${targetRegistry}" // + '/' + appName}"
+        
         // Cluster Properties
         tillerNS             = "${tillerNS}"
         productionNamespace  = "${productionNamespace}"
