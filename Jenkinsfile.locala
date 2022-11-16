@@ -113,7 +113,8 @@ pipeline {
         }
 
 
-        /**
+        /*
+        *
          * STAGE - Build and deliver application container image
          *
          * Uses saharshsingh/container-management:1.0 image to build .NET binaries,

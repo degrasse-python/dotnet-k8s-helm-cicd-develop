@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+spec:
+    containers:
+      - name: jnlp
+        image: 'jenkinsci/jnlp-slave:alpine'
+        env:
+          JENKINS_URL: jenkins.operations:8080
+          JENKINS_TUNNEL: jenkins-agent.operations:50002
+      - name: aspnet
+        image: mcr.microsoft.com/dotnet/aspnet:6.0
+        imagePullPolicy: IfNotPresent
+        env:
+          ASPNETCORE_URLS: localhost:8080
+        command:
+          - /bin/cat
+        tty: true
