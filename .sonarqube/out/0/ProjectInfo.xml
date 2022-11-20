@@ -3,7 +3,7 @@
   <ProjectName>PrimeService</ProjectName>
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Product</ProjectType>
-  <ProjectGuid>691f7b82-e0d6-434d-8602-30268a16e0f7</ProjectGuid>
+  <ProjectGuid>00242851-d683-4221-ae66-4a3c51564839</ProjectGuid>
   <FullPath>/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>

@@ -26,7 +26,9 @@ spec:
         DOTNET_CLI_HOME = "/tmp"
         PATH="$PATH:/tmp/.dotnet/tools"
     }
-  
+    tools{
+      jdk 'openjdk-9'
+    }
     stages {
         /*
 
@@ -40,9 +42,6 @@ spec:
         stage('Unit Test') {
             steps {
               sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
-              sh 'pwd'
-              // sh 'dotnet restore -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test/PrimeService.Tests/'
-              // sh "dotnet restore -o /tmp/dotnet/build/ sample-dotnet-app"
               //sh 'chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/bin/*'
               //sh 'chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/lib/*.jar'
               sh 'chmod 775 /root/.dotnet/tools/.store/dotnet-sonarscanner/5.8.0/dotnet-sonarscanner/5.8.0/tools/net5.0/any/sonar-scanner-4.7.0.2747/bin/sonar-scanner'

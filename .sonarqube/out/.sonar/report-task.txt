@@ -2,5 +2,5 @@ projectKey=ameris-bank
 serverUrl=https://sonar.newyorklifepoc.cb-demos.io
 serverVersion=8.9.6.50800
 dashboardUrl=https://sonar.newyorklifepoc.cb-demos.io/dashboard?id=ameris-bank
-ceTaskId=AYSWvIQ64K2aeuhEldmC
-ceTaskUrl=https://sonar.newyorklifepoc.cb-demos.io/api/ce/task?id=AYSWvIQ64K2aeuhEldmC
+ceTaskId=AYSXMNdf4K2aeuhEldmD
+ceTaskUrl=https://sonar.newyorklifepoc.cb-demos.io/api/ce/task?id=AYSXMNdf4K2aeuhEldmD
