@@ -9,8 +9,8 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: shell
-    image: mcr.microsoft.com/dotnet/sdk:6.0
+  - name: dotnet-sdk
+    image: docker.io/adsaunde/dotnetsdk-sonarqube:alpine
     command:
     - sleep
     args:
@@ -19,7 +19,7 @@ spec:
           allowPrivilegeEscalation: false
           runAsUser: 0
 '''
-            defaultContainer 'shell'
+            defaultContainer 'dotnet-sdk'
         }
     }
     environment {
@@ -52,10 +52,10 @@ spec:
         
             steps {
               withSonarQubeEnv(installationName:'sqA'){
-              //sh 'dotnet sonarscanner begin /k:"ameris-bank" /d:sonar.host.url="https://sonar.newyorklifepoc.cb-demos.io"  /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
-              //sh 'dotnet build'
-              //sh 'dotnet sonarscanner end /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
-              sh "dotnet build sonar:sonar"
+              sh 'dotnet sonarscanner begin /k:"ameris-bank" /d:sonar.host.url="https://sonar.newyorklifepoc.cb-demos.io"  /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
+              sh 'dotnet build'
+              sh 'dotnet sonarscanner end /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
+              //sh "dotnet build ./unit-testing-using-dotnet-test/PrimeService/ sonar:sonar"
               }
             }
         }
