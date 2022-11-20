@@ -98,7 +98,14 @@ spec:
 
             }
         }
-
+        /*
+         *
+         * STAGE - Deploy to Staging
+         *
+         * Only executes on main and release branch builds. Deploys to either 'Dev'
+         * or 'QA' environment, based on whether main or release branch is being
+         * built.
+        */
         stage('Deploy to Staging - example 1') {
           when { anyOf { branch releaseBranch; branch mainBranch } }
           agent {
@@ -132,8 +139,16 @@ spec:
               
             }
         }
-
-
+        
+        /*
+         *
+         * STAGE - Deploy to Staging
+         *
+         * Only executes on main and release branch builds. Deploys to either 'Dev'
+         * or 'QA' environment, based on whether main or release branch is being
+         * built.
+        */
+        /* 
         stage('Deploy to Staging - example 2') {
 
             when { anyOf { branch releaseBranch; branch mainBranch } }
@@ -196,5 +211,6 @@ spec:
                 }
             }
         }
+        */
     }
 }
