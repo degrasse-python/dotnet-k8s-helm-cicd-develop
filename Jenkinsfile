@@ -26,9 +26,7 @@ spec:
         DOTNET_CLI_HOME = "/tmp"
         PATH="$PATH:/tmp/.dotnet/tools"
     }
-    tools{
-      jdk 'openjdk-11'
-    }
+  
     stages {
         /*
 
