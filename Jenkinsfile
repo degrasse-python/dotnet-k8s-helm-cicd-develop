@@ -51,12 +51,12 @@ spec:
         stage('Code Coverage Scan') {
         
             steps {
-              withSonarQubeEnv(installationName:'sqA')
+              withSonarQubeEnv(installationName:'sqA'){
               sh 'dotnet sonarscanner begin /k:"ameris-bank" /d:sonar.host.url="https://sonar.newyorklifepoc.cb-demos.io"  /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
               sh 'dotnet build'
               sh 'dotnet sonarscanner end /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
               // sh "./mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
-
+              }
             }
         }
 
