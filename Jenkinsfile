@@ -1,35 +1,5 @@
-// Define global variable to hold dynamically loaded modules
-// Modules will be loaded in 'Initialize' step
-def modules = [:]
-
 pipeline {
-  options{
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  parameters {
-    string(name: 'helmChartDirectory', 
-           defaultValue: 'deployment/helm-k8s', 
-           description: 'Relative path to Helm chart and templates')
-    string(name: 'sourceRegistry', 
-           defaultValue: 'mcr.microsoft.com/dotnet/sdk:6.0', 
-           description: 'Registry where image will be pushed for long term storage')
-    // string(name: 'sourceRegistry', defaultValue: 'quay.io/buildah/stable', description: 'Registry where image will be pushed for long term storage')
-    string(name: 'targetRegistry', 
-           defaultValue: 'gcr.io/cb-thunder-v2/dotnot-api', 
-           description: 'Registry where image will be pushed for long term storage')
-    string(name: 'prodIngressHost', 
-           defaultValue: 'ameris.cb-sa.io', 
-           description:'Ingress Host to set when deploying in Production environment.')
-
-  }
-
-  environment {
-    helmChartDirectory = "${helmChartDirectory}"
-    helmChartFile      = "${helmChartDirectory + '/Chart.yaml'}"
-  }
-
-
-  agent {
+    agent {
         kubernetes {
             yaml '''
 apiVersion: v1
@@ -38,8 +8,6 @@ spec:
   containers:
   - name: shell
     image: mcr.microsoft.com/dotnet/sdk:6.0
-    env:
-      'DOTNET_CLI_HOME': '/tmp'
     command:
     - sleep
     args:
@@ -48,64 +16,11 @@ spec:
             defaultContainer 'shell'
         }
     }
-
     stages {
-      stage('Initialize') {
-
-            agent any
-
+        stage('Main') {
             steps {
-
-                // set build version from helm chart and current branch
-                script {
-
-                    // load modules
-                    modules.helm   = load './jenkins/groovy/helm.groovy'
-                    modules.common = load './jenkins/groovy/commonutils.groovy'
-
-                    // Read Pod templates for dynamic slaves from files
-                    env.buildahAgentYaml = readFile './jenkins/agents/buildah-agent.yml'
-                    env.helmAgentYaml    = readFile './jenkins/agents/helm-agent.yml'
-                    env.dotnetAgentYaml    = readFile './jenkins/agents/dotnet-agent.yml'
-
-                    // Set version information to build environment
-                    env.buildVersion         = modules.common.getVersionFromHelmChart(helmChartFile, releaseBranch)
-                    // Set version + "git commit hash" information to environment
-                    // env.buildVersionWithHash = env.buildVersion + '-' + sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
-                }
+                sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
             }
         }
-        // TODO xUnit viz in Jenkins
-        stage('Unit Test') {
-            steps {
-              sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
-              sh 'ls ./sample-dotnet-app'
-              sh 'dotnet build -o /tmp/dotnet/build/ unit-testing-using-dotnet-test.sln'
-              sh "dotnet restore -o /tmp/dotnet/build/ sample-dotnet-app"
-              sh "dotnet test -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test"
-            }
-        }
-
-        // TODO Add keys  
-        stage('Code Coverage Scan') {
-        
-            steps {
-              withSonarQubeEnv(installationName:'sqA')
-              sh 'dotnet sonarscanner begin /k:"ameris-bank" /d:sonar.host.url="https://sonar.newyorklifepoc.cb-demos.io"  /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
-              sh 'dotnet build'
-              sh 'dotnet sonarscanner end /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
-              // sh "./mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
-
-            }
-        }
-        /*
-         *
-         * STAGE - Deploy to Staging
-         *
-         * Only executes on main and release branch builds. Deploys to either 'Dev'
-         * or 'QA' environment, based on whether main or release branch is being
-         * built.
-        */
-        
     }
 }
