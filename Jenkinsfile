@@ -24,6 +24,7 @@ spec:
     }
     environment {
         DOTNET_CLI_HOME = "/tmp"
+        PATH="$PATH:/tmp/.dotnet/tools"
     }
     
     stages {
