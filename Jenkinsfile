@@ -1,5 +1,8 @@
 pipeline {
-    agent {
+  options{
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  agent {
         kubernetes {
             yaml '''
 apiVersion: v1
@@ -16,11 +19,17 @@ spec:
             defaultContainer 'shell'
         }
     }
+    // TODO xUnit viz in Jenkins
     stages {
-        stage('Main') {
+        stage('Unit Test') {
             steps {
-                sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
+              sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
+              sh 'ls ./sample-dotnet-app'
+              sh 'dotnet build -o /tmp/dotnet/build/ unit-testing-using-dotnet-test.sln'
+              sh "dotnet restore -o /tmp/dotnet/build/ sample-dotnet-app"
+              sh "dotnet test -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test"
             }
         }
+        
     }
 }
