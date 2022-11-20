@@ -19,17 +19,19 @@ spec:
             defaultContainer 'shell'
         }
     }
+    environment {
+        DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+    }
     // TODO xUnit viz in Jenkins
     stages {
         stage('Unit Test') {
             steps {
               sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
-              sh 'ls ./sample-dotnet-app'
               sh 'dotnet build -o /tmp/dotnet/build/ unit-testing-using-dotnet-test.sln'
               sh "dotnet restore -o /tmp/dotnet/build/ sample-dotnet-app"
               sh "dotnet test -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test"
             }
         }
-        
+
     }
 }
