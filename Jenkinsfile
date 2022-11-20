@@ -128,9 +128,7 @@ spec:
               sh 'kubectl config set-context helm --cluster=development --namespace=$namespace --user=jenkins'
               sh 'kubectl config use-context helm'
 
-              sh 'helm upgrade --install --wait \
-                  --namespace $namespace \
-                  --set ingress.host=$ingressHost \
+              sh 'helm upgrade --install --wait --namespace $namespace --set ingress.host=$ingressHost'
               
             }
         }
