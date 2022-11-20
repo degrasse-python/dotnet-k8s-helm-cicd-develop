@@ -10,3 +10,15 @@
 /Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.dll
 /Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/ref/PrimeService.dll
 /Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.pdb
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/bin/Debug/net6.0/PrimeService.deps.json
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/bin/Debug/net6.0/PrimeService.dll
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/bin/Debug/net6.0/ref/PrimeService.dll
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/bin/Debug/net6.0/PrimeService.pdb
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.csproj.AssemblyReference.cache
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.AssemblyInfoInputs.cache
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.AssemblyInfo.cs
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.csproj.CoreCompileInputs.cache
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.dll
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/ref/PrimeService.dll
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/Debug/net6.0/PrimeService.pdb

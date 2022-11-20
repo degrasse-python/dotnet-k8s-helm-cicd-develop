@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
+      "projectUniqueName": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
       "projectName": "PrimeService",
-      "projectPath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
+      "projectPath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
       "packagesPath": "/Users/cb-dsaunders/.nuget/packages/",
-      "outputPath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/obj/",
+      "outputPath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/cb-dsaunders/.nuget/NuGet/NuGet.Config"

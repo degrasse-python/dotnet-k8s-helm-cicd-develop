@@ -52,8 +52,9 @@ spec:
         
             steps {
               withSonarQubeEnv(installationName:'sqA'){
+              sh 'dotnet tool install --global dotnet-sonarscanner'
               sh 'dotnet sonarscanner begin /k:"ameris-bank" /d:sonar.host.url="https://sonar.newyorklifepoc.cb-demos.io"  /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
-              sh 'dotnet build'
+              sh 'dotnet build ./unit-testing-using-dotnet-test/PrimeService'
               sh 'dotnet sonarscanner end /d:sonar.login="06fafcc8334a4128908c456afe18dbcb86eb75d3"'
               //sh "dotnet build ./unit-testing-using-dotnet-test/PrimeService/ sonar:sonar"
               }

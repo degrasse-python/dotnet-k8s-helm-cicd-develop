@@ -1,0 +1,1 @@
+/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/.sonarqube/out/1

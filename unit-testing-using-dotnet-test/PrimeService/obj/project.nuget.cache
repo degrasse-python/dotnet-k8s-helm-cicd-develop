@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UAiwCkj0kwFZvzsGuGrQrDUGd0ItcFCs+sjQpOCBs7eB5yAO35DHgfYiMZeejjhR+NzeVSsYy2I6cstFNevW1g==",
+  "dgSpecHash": "+jLuHiIBijKHK0Xkvf3QhVVX7cuJHMCeM8Z533F2yN4wDJb6E0jc8HtMvDi8ER/ridCdWqjBgvMoedAhHqumNA==",
   "success": true,
-  "projectFilePath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/sample-dotnet-app/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
+  "projectFilePath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
