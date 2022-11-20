@@ -27,6 +27,7 @@ spec:
         stage('Unit Test') {
             steps {
               sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
+              sh 'pwd'
               sh 'dotnet build -o /tmp/dotnet/build/ unit-testing-using-dotnet-test.sln'
               sh "dotnet restore -o /tmp/dotnet/build/ sample-dotnet-app"
               sh "dotnet test -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test"
