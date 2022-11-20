@@ -15,6 +15,9 @@ spec:
     - sleep
     args:
     - infinity
+    securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
 '''
             defaultContainer 'shell'
         }
@@ -35,7 +38,6 @@ spec:
         // TODO xUnit viz in Jenkins
         stage('Unit Test') {
             steps {
-              sh "sudo chown jenkins: -R \$PWD/"
               sh 'dotnet --version; ls -l /usr/bin/dotnet; which dotnet'
               sh 'pwd'
               // sh 'dotnet restore -o /tmp/dotnet/build/ ./unit-testing-using-dotnet-test/PrimeService.Tests/'
