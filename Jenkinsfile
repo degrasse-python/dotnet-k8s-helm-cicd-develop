@@ -18,6 +18,8 @@ spec:
     securityContext:
           allowPrivilegeEscalation: false
           runAsUser: 0
+    env:
+      JAVA_HOME: /tmp/usr/lib/jvm/java-11-openjdk
 '''
             defaultContainer 'dotnet-sdk'
         }
