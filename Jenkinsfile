@@ -20,7 +20,7 @@ spec:
         }
     }
     environment {
-        DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+        DOTNET_CLI_HOME = "/tmp"
     }
     // TODO xUnit viz in Jenkins
     stages {
