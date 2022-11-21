@@ -75,9 +75,8 @@ spec:
         */
         stage('Deploy to Staging') {
           agent {label 'helm'}
-          container('helm')
           steps {
-            sh 'hello'
+            sh 'helm'
           }
 
         }
