@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "+jLuHiIBijKHK0Xkvf3QhVVX7cuJHMCeM8Z533F2yN4wDJb6E0jc8HtMvDi8ER/ridCdWqjBgvMoedAhHqumNA==",
+  "dgSpecHash": "G5RPa+wJH2xj82k8cGS9wp0gFIVjRVug8WPYm7TnCwh9nHkvP7MKNmM+1DTPiuD4hhpvQv5T/AvRdeJ5E6LAGg==",
   "success": true,
   "projectFilePath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/cb-dsaunders/.nuget/packages/log4net/2.0.14/log4net.2.0.14.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/system.configuration.configurationmanager/4.5.0/system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/system.security.accesscontrol/4.5.0/system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
