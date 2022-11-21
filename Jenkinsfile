@@ -80,6 +80,7 @@ spec:
 
         }
         */
+        /* 
         stage('Deploy to Staging - example 1') {
           when { anyOf { branch releaseBranch; branch mainBranch } }
           agent {
@@ -112,6 +113,6 @@ spec:
               sh 'helm upgrade --install --wait --namespace $namespace --set ingress.host=$ingressHost'
               
             }
-        }
+        } */
       }
 }
