@@ -48,6 +48,8 @@ spec:
               sh 'chmod 775 /root/.dotnet/tools/.store/dotnet-sonarscanner/5.8.0/dotnet-sonarscanner/5.8.0/tools/net5.0/any/sonar-scanner-4.7.0.2747/lib/sonar-scanner-cli-4.7.0.2747.jar'
               sh 'dotnet restore ./unit-testing-using-dotnet-test/PrimeService.Tests/'
               sh 'dotnet test ./unit-testing-using-dotnet-test/PrimeService.Tests/ --logger:"xunit;LogFilePath=/var/log/test_result.xml"'
+              sh 'cat /var/log/test_result.xml'
+              xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ], skipPublishingChecks: false)
             }
         }
 
@@ -63,7 +65,6 @@ spec:
               //sh "dotnet build ./unit-testing-using-dotnet-test/PrimeService/ sonar:sonar"
               }
             }
-        }
-
-    }
+        } 
+      }
 }
