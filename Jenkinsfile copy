@@ -162,7 +162,7 @@ spec:
                 }
             }
 
-            container('helm') steps {
+            steps {
 
                 // Deploy to K8s using helm install
                 container('helm') {

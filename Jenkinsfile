@@ -72,13 +72,46 @@ spec:
          * Only executes on main and release branch builds. Deploys to either 'Dev'
          * or 'QA' environment, based on whether main or release branch is being
          * built.
-        */
+        
         stage('Deploy to Staging') {
-          agent {label 'helm'}
           steps {
             sh 'helm'
           }
 
+        }
+        */
+        stage('Deploy to Staging - example 1') {
+          when { anyOf { branch releaseBranch; branch mainBranch } }
+          agent {
+            kubernetes {
+                    yaml '''
+                    apiVersion: v1
+                    kind: Pod
+                    spec:
+                      containers:
+                      - name: helm
+                        image: alpine/helm
+                        env:
+                          DOTNET_CLI_HOME: '/tmp'
+                        command:
+                        - sleep
+                        args:
+                        - infinity
+                    '''
+                      defaultContainer 'helm'
+                  }
+              }
+
+            steps {
+              sh 'export HOME="`pwd`'
+              sh 'kubectl config set-cluster development --server=$k8sCluster --insecure-skip-tls-verify'
+              sh 'kubectl config set-credentials jenkins --token=$clusterAuthToken'
+              sh 'kubectl config set-context helm --cluster=development --namespace=$namespace --user=jenkins'
+              sh 'kubectl config use-context helm'
+
+              sh 'helm upgrade --install --wait --namespace $namespace --set ingress.host=$ingressHost'
+              
+            }
         }
       }
 }
