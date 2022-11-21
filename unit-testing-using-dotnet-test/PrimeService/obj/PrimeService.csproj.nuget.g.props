@@ -12,4 +12,7 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="/Users/cb-dsaunders/.nuget/packages/" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)xunitxml.testlogger/3.0.70/build/netstandard1.5/XunitXml.TestLogger.props" Condition="Exists('$(NuGetPackageRoot)xunitxml.testlogger/3.0.70/build/netstandard1.5/XunitXml.TestLogger.props')" />
+  </ImportGroup>
 </Project>

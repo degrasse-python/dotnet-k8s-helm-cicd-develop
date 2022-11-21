@@ -103,6 +103,12 @@
             "rid": "win"
           }
         }
+      },
+      "XunitXml.TestLogger/3.0.70": {
+        "type": "package",
+        "build": {
+          "build/netstandard1.5/XunitXml.TestLogger.props": {}
+        }
       }
     }
   },
@@ -319,10 +325,28 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "XunitXml.TestLogger/3.0.70": {
+      "sha512": "11jHu5z9NH43lxFTFqRr30HmhO2d0THrJBIAV8AUOmFsfr4e+SVrkXbCyXBziRMOcKktpM6x5T+wbyrtSQPzjQ==",
+      "type": "package",
+      "path": "xunitxml.testlogger/3.0.70",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.Xunit.Xml.TestAdapter.dll",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.Xunit.Xml.TestLogger.dll",
+        "build/_common/Spekt.TestLogger.dll",
+        "build/net46/XunitXml.TestLogger.props",
+        "build/netstandard1.5/XunitXml.TestLogger.props",
+        "packageIcon.png",
+        "xunitxml.testlogger.3.0.70.nupkg.sha512",
+        "xunitxml.testlogger.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "XunitXml.TestLogger >= 3.0.70",
       "log4net >= 2.0.14"
     ]
   },
@@ -363,6 +387,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "XunitXml.TestLogger": {
+            "target": "Package",
+            "version": "[3.0.70, )"
+          },
           "log4net": {
             "target": "Package",
             "version": "[2.0.14, )"

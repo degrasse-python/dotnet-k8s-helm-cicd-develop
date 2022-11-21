@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G5RPa+wJH2xj82k8cGS9wp0gFIVjRVug8WPYm7TnCwh9nHkvP7MKNmM+1DTPiuD4hhpvQv5T/AvRdeJ5E6LAGg==",
+  "dgSpecHash": "oDc68lEBfFaHyn5qZLcX7v2U366Zlzmi5z+Yru+zm3/FO5+M+qiTftsPKZs9l4/70pAX60OYU2cd18WNlE0XMw==",
   "success": true,
   "projectFilePath": "/Users/cb-dsaunders/githubRepos/dotnet-k8s-helm-cicd-develop/unit-testing-using-dotnet-test/PrimeService/PrimeService.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,8 @@
     "/Users/cb-dsaunders/.nuget/packages/system.security.accesscontrol/4.5.0/system.security.accesscontrol.4.5.0.nupkg.sha512",
     "/Users/cb-dsaunders/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
     "/Users/cb-dsaunders/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
-    "/Users/cb-dsaunders/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512"
+    "/Users/cb-dsaunders/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
+    "/Users/cb-dsaunders/.nuget/packages/xunitxml.testlogger/3.0.70/xunitxml.testlogger.3.0.70.nupkg.sha512"
   ],
   "logs": []
 }
