@@ -49,7 +49,7 @@ spec:
               sh 'dotnet restore ./unit-testing-using-dotnet-test/PrimeService.Tests/'
               sh 'dotnet test ./unit-testing-using-dotnet-test/PrimeService.Tests/ --logger:"xunit;LogFilePath=/var/log/test_result.xml"'
               sh 'cat /var/log/test_result.xml'
-              xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ], skipPublishingChecks: false)
+              xunit (tools: [ BoostTest(pattern: '/var/log/*.xml') ], skipPublishingChecks: false)
             }
         }
 
