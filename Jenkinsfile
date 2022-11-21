@@ -49,7 +49,6 @@ spec:
               sh 'dotnet restore ./unit-testing-using-dotnet-test/PrimeService.Tests/'
               sh 'dotnet test ./unit-testing-using-dotnet-test/PrimeService.Tests/ --logger:"xunit;LogFilePath=/var/log/test_result.xml"'
               sh 'cat /var/log/test_result.xml'
-              xunit (tools: [ BoostTest(pattern: '/var/log/*.xml') ], skipPublishingChecks: false)
             }
         }
 
@@ -66,5 +65,21 @@ spec:
               }
             }
         } 
+        /*
+         *
+         * STAGE - Deploy to Staging
+         *
+         * Only executes on main and release branch builds. Deploys to either 'Dev'
+         * or 'QA' environment, based on whether main or release branch is being
+         * built.
+        */
+        stage('Deploy to Staging') {
+          agent {label 'helm'}
+          container('helm')
+          steps {
+            sh 'hello'
+          }
+
+        }
       }
 }
